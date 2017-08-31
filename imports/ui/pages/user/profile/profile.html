@@ -1,0 +1,41 @@
+<template name='App_profile'>
+
+	<div class="row">
+		<div class="col-md-12">                    
+	        <div class="panel panel-success">
+	            <div class="panel-heading">
+	                User Profile
+	            </div>
+	            <div class="panel-body">
+
+	            	<div class="container-fluid well span6">
+						<div class="row-fluid">
+					        <div class="span2" >
+							    <img src="/img/noimage.jpg" alt="User img here." class="img-circle profile-img">
+							    <div class="div-inline pull-right">
+								    <div class="btn-group div-inline">
+						                <a class="btn dropdown-toggle btn-info" data-toggle="dropdown" href="#">
+						                    Sample Actions 
+						                    <span class="icon-cog icon-white"></span><span class="caret"></span>
+						                </a>
+						                <ul class="dropdown-menu">
+						                    <li><a href="#"><span class="icon-wrench"></span> Modify</a></li>
+						                    <li><a href="#"><span class="icon-trash"></span> Delete</a></li>
+						                </ul>
+						            </div>
+						        </div>
+					        </div>
+					        <div class="span8">
+					            <h3>Name : <b>{{user.profile.fullName}}</b></h3>
+					            <h4>Email: <b>{{emailAddress}}</b></h4>
+					            <h4>Contact No. : <b>{{user.profile.contactNo}}</b></h4>
+					            <h4>Plate No. : <b>{{user.profile.plateNo}}</b></h4>
+					        </div>
+						</div>
+					</div>
+
+				</div>
+            </div>
+		</div>
+	</div>
+</template>

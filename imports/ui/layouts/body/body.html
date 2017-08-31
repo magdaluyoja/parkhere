@@ -1,0 +1,17 @@
+<template name="App_body">
+
+	<div id="wrapper">
+
+		{{> topnavbar}}
+	    {{> leftnavbar}}
+
+    	<div id="page-content-wrapper">
+	        <div class="page-content">
+	            <div class="container-fluid">
+                	{{> Template.dynamic template=main}}
+	            </div>
+	        </div>
+	    </div>
+
+	</div>	
+</template>

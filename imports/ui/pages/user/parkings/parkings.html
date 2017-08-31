@@ -1,0 +1,33 @@
+<template name="App_parkingAreas">
+	<div class="row">
+		<div class="col-md-12">  
+		        <div class="panel panel-success">
+
+		            <div class="panel-heading heading-title">
+		            	Parking Areas
+		            </div>
+		            <div class="panel-body">
+		            	
+		            	{{#each parkingAreas}}
+		            		<div class="row">
+		            			<div class="col-md-8 col-md-offset-2">
+		            				<div class="panel panel-default">
+									    <div class="panel-heading heading-title">{{parkingName}}</div>
+									    <div class="panel-body">
+									        <h6>Status: {{status}}</h6>
+									        <h6>Rate: {{rate}}</h6>
+						               		<h6>Slots: {{spacesNo}}</h6>
+									        <div class="text-center">
+									        	{{{ parkingSlots }}}
+									        </div>
+									    </div>
+									</div>
+		            			</div>
+		            		</div>
+		               	{{/each}}
+
+		            </div>
+	            </div>
+        </div>
+	</div>
+</template>

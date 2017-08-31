@@ -1,0 +1,80 @@
+body { 
+	padding-top: 50px; 
+	background-color:  #ccccb3;
+	.parking-details h5 span{
+		font-weight: bold;
+	}
+	.payment-container{
+		margin-top: 20px;
+		margin-bottom: 20px;
+		.img-paypal{
+			height: 40px;
+		}
+		.img-visa{
+			height: 40px;
+		}
+		.img-mastercard{
+			height: 40px;
+		}	
+		label > input{ /* HIDE RADIO */
+	  	visibility: hidden; /* Makes input not-clickable */
+		  	position: absolute; /* Remove input from document flow */
+		}
+		label > input + img{ /* IMAGE STYLES */
+		  	cursor:pointer;
+		  	border:2px solid transparent;
+		  	margin: 20px;
+		}
+		label > input:checked + img{ /* (RADIO CHECKED) IMAGE STYLES */
+		  	border:2px solid #d6d6c2;
+		  	background-color:#d6d6c3; 
+		}
+	}
+
+	.div-inline{
+	    display:inline-block;
+	}
+	.profile-img{
+		height: 100px;
+	}
+	.heading-title{
+		font-weight:bold;
+	}
+	.btnlone{
+		margin-bottom:10px;
+	}
+	.btn-actions{
+		width: 70px;
+	} 
+	.active{
+		background-color: #d6d6c2;
+	}
+	.divcontent{
+  		background: #d2edf4 !important;
+	  	background-image: linear-gradient(to bottom, #d0edf5, #e1e5f0 100%) !important;
+  	}
+  	.divcontainer,.divcontaineradmin {
+  		background-color: #f5f5f0;
+  	}
+	.mygoogle-icon {
+		background-image: url("/img/g+.png");
+		height: 50px;
+		width: 50px;
+		display: block;
+		background-size: 100% 100%;
+	}
+	.myfacebook-icon{
+		background-image: url("/img/fb.png");
+		height: 50px;
+		width: 50px;
+		display: block;
+		background-size: 100% 100%;
+	}
+	.mytwitter-icon{
+		background-image: url("/img/twi.png");
+		height: 50px;
+		width: 50px;
+		display: block;
+		background-size: 100% 100%;
+	}
+}

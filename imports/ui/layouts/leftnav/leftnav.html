@@ -1,0 +1,54 @@
+<template name="leftnavbar">
+	<div id="sidebar-wrapper">
+        {{#if isInRole 'admin'}}
+            <div class="leftnav-title sidebar-brand">Users</div>
+            <nav id="spy">
+                <ul class="sidebar-nav nav">
+                    
+                    <li>
+                        <a href="/admin/users" class="{{isActiveRoute 'users'}}">
+                            <span class="fa fa-anchor solo">Manage</span>
+                        </a>
+                    </li>
+
+                </ul>
+            </nav> 
+
+            <div class="leftnav-title sidebar-brand">Parkings Spaces</div>
+            <nav id="spy">
+                <ul class="sidebar-nav nav">
+                    
+                    <li>
+                        <a href="/admin/parkings"  class="{{isActiveRoute 'parkings'}}">
+                            <span class="fa fa-anchor solo">Manage</span>
+                        </a>
+                    </li>
+
+                </ul>
+            </nav>       
+        {{else}}
+            {{#if currentUser}}
+                <div class="leftnav-title sidebar-brand">My Account</div>
+                <nav id="spy">
+                    <ul class="sidebar-nav nav">
+                            <li>
+                                <a href="/user/myaccount/transactions"   class="{{isActiveRoute 'transactions'}}">
+                                    <span class="fa fa-anchor solo">Transactions</span>
+                                </a>
+                            </li>
+                    </ul>
+                </nav>     
+            {{/if}}
+            <div class="leftnav-title sidebar-brand">Parking Areas</div>
+            <nav id="spy">
+                <ul class="sidebar-nav nav">
+                    <li>
+                        <a href="/user/parkings"  class="{{isActiveRoute 'parkingAreas'}}">
+                            <span class="fa fa-anchor solo">Parking Areas</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>     
+        {{/if}}
+    </div>
+</template>

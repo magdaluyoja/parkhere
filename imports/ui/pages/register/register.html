@@ -1,0 +1,58 @@
+<template name='App_register'>
+
+	<div class="row">
+		<div class="col-md-6 col-md-offset-3 divregister">
+		<!-- {{#if admin}} or -->
+		{{#if isInRole 'admin'}}
+			<h3>Customer Registration</h3>
+			<hr>		
+
+			<form class="frmregister">
+
+				<div class="form-group">
+				    <label for="name">Full Name</label>
+				    <input type="text" class="form-control" id="name" placeholder="Full Name" required="">
+				</div>
+
+				<div class="form-group">
+				    <label for="email">Email Address</label>
+				    <input type="email" class="form-control" id="email" placeholder="Email" required="">
+				</div>
+
+				<div class="form-group">
+				    <label for="password">Password</label>
+				    <input type="password" class="form-control" id="password" placeholder="Password" required="">
+				</div>
+
+				<div class="form-group">
+				    <label for="confirm-password">Confirm Password</label>
+				    <input type="password" class="form-control" id="confirm-password" placeholder="Confirm password" required="">
+				</div>
+
+				<div class="form-group">
+				    <label for="contactno">Contact No.</label>
+				    <input type="text" class="form-control" id="contactno" placeholder="Contact No." required="">
+				</div>
+
+				<div class="form-group">
+				    <label for="plateno">Plate No.</label>
+				    <input type="text" class="form-control" id="plateno" placeholder="Plate No." required="">
+				</div>
+
+				<div class="form-group">
+				    <input type="submit" name="" value="Register" class="btn btn-primary">
+				</div>
+
+			</form>
+
+		{{else}}
+			<h1>Not authorized!</h1>
+		{{/if}}
+		</div>
+	</div>
+	<div class="row">
+		<div class="divcustomer-list col-md-8 col-md-offset-2">
+			<!-- {{>customerList}} -->
+		</div>
+	</div>
+</template>

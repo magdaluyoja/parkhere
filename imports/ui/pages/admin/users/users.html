@@ -1,0 +1,52 @@
+<template name="App_users">
+	<div class="row">
+		<div class="col-md-12">                    
+	        <div class="panel panel-success">
+	            <div class="panel-heading">
+	                Users
+	            </div>
+	            <div class="panel-body">
+
+	               	{{#if isInRole 'admin'}}
+
+		               	<div class="table-responsive">
+						  	<table class="table">
+						    	<thead>
+						    		<tr>
+							    		<th>Name</th>
+							    		<th>Contact No.</th>
+							    		<th>Email Add</th>
+							    		<th>Plate No.</th>
+							    		<th>Admin</th>
+							    		<th>Actions</th>
+							    	</tr>
+						    	</thead>
+						    	<tbody>
+
+						    		{{#each users}}
+						    			<tr>
+							    			<td>{{profile.fullName}}</td>
+							    			<td>{{userEmail}}</td>
+							    			<td>{{profile.contactNo}}</td>
+							    			<td>{{profile.plateNo}}</td>
+							    			<td>{{isAdmin.roles}}</td>
+							    			<td>
+							    				<button class="btn-set-role btn btn-success">
+							    					{{#if isAdmin.roles}}Unset Admin {{else}} Set Admin {{/if}}
+							    				</button>
+							    			</td>
+							    		</tr>
+				               		{{/each}}
+						    	</tbody>
+						  	</table>
+						</div>
+	               		
+	               	{{else}}
+						<h1>Not authorized!</h1>
+					{{/if}}
+
+	            </div>
+            </div>
+        </div>
+	</div>
+</template>

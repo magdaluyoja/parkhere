@@ -1,0 +1,35 @@
+<template name="ovrAtTextInput">
+
+	  <div class="at-input form-group {{#if isValidating}}validating{{/if}} {{#if hasError}}has-error{{/if}} {{#if hasSuccess}}has-success{{/if}} {{#if feedback}}has-feedback{{/if}}">
+
+		    {{#if showLabels}}
+			      <label for="at-field-{{_id}}">
+			        {{displayName}} {{#unless required}}{{optionalText}}{{/unless}}
+			      </label>
+		    {{/if}}
+
+		    <input type="{{type}}" id="at-field-{{_id}}" name="at-field-{{_id}}" placeholder="{{placeholder}}" autocapitalize="none" autocorrect="off" class="form-control">
+
+		    {{#if hasIcon}}
+		        <span class="{{iconClass}}"></span>
+		    {{/if}}
+
+		    {{#if hasError}}
+		      <span>{{errorText}}</span>
+		    {{/if}}
+
+	  </div>
+
+</template>
+
+<template name="myAtSocial">
+	<button class="at-social-btn btn {{disabled}} {{serviceName}}" id="at-{{name}}" name="{{name}}">
+	    <i class="{{iconClass}} icon"></i>
+	</button>
+</template>
+
+<template name='overrideAtPwdFormBtn'>
+  	<button type="submit" class="at-btn submit {{submitDisabled}} btn btn-primary" id="at-btn">
+    	{{buttonText}}
+  	</button>
+</template>

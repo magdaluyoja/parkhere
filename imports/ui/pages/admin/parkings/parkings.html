@@ -1,0 +1,101 @@
+<template name="App_parkings">
+	<div class="row">
+		<div class="col-md-12">  
+			{{#if isInRole 'admin'}}     
+				<button class="btn btn-primary btnlone" data-toggle="modal" data-target="#parkingModal">Add New</button>             
+		        <div class="panel panel-success">
+
+		            <div class="panel-heading heading-title">
+		                Parking Areas
+		            </div>
+		            <div class="panel-body">
+		               	<div class="table-responsive">
+						  	<table class="table">
+						    	<thead>
+						    		<tr>
+							    		<th>Parking Area Name</th>
+							    		<th>Rate/Minute</th>
+							    		<th>No of Spaces</th>
+							    		<th>Status</th>
+							    		<th>Created At</th>
+							    		<th>Created By</th>
+							    		<th>Actions</th>
+							    	</tr>
+						    	</thead>
+						    	<tbody>
+
+						    		{{#each parkingSpaces}}
+						    			<tr>
+							    			<td>{{parkingName}}</td>
+							    			<td>{{rate}}</td>
+							    			<td>{{spacesNo}}</td>
+							    			<td>{{status}}</td>
+							    			<td>{{moFormat createdAt 'YYYY-MM-DD hh:mm:ss'}}</td>
+							    			<td>{{#each createdName}}{{profile.fullName}}{{/each}}</td>
+							    			<td>
+							    				<button class="btn-actions btn-delete btn btn-danger">Delete</button>
+							    				<button class="btn-actions btn-edit btn btn-success" data-toggle="modal" data-target="#parkingModal">Edit</button>
+							    			</td>
+							    		</tr>
+				               		{{/each}}
+						    	</tbody>
+						  	</table>
+						</div>
+		            </div>
+	            </div>
+	        {{else}}
+	        	<div class="panel panel-danger">
+		            <div class="panel-heading">
+		                Oops!
+		            </div>
+		            <div class="panel-body">
+						<h1>Not authorized!</h1>
+					</div>
+				</div>
+			{{/if}}
+        </div>
+	</div>
+	<div id="parkingModal" class="modal fade" role="dialog">
+		<div class="modal-dialog modal-lg">
+
+		    <!-- Modal content-->
+		    <div class="modal-content">
+			    <div class="modal-header">
+				    <button type="button" class="close" data-dismiss="modal">&times;</button>
+				    <h4 class="modal-title" id="md-parking-title">Add Parking Area</h4>
+			    </div>
+			    <form id="frmparking">
+			    	<div class="modal-body">
+			       	
+			       		<div class="form-group">
+			       			<label for="txtparkname">Parking Area Name</label>
+			       			<input type="text" class="form-control frmparking" name="txtparkname" id="txtparkname" required>
+			       		</div>
+			       		<div class="form-group">
+			       			<label for="txtrate">Price per Minute</label>
+			       			<input type="number" class="form-control frmparking" name="txtrate" id="txtrate" required min="1">
+			       		</div>
+			       		<div class="form-group">
+			       			<label for="txtspacesno">No of Spaces</label>
+			       			<input type="number" class="form-control frmparking" name="txtspacesno" id="txtspacesno" required min="1">
+			       		</div>
+			       		<div class="form-group">
+			       			<label for="txtspace-status">Status</label>
+			       			<select id="txtspace-status" name="txtspace-status" class="form-control frmparking" required>
+			       				<option value="">--Select Status --</option>
+			       				<option value="Active">Active</option>
+			       				<option value="Inactive">Inactive</option>
+			       			</select>
+			       		</div>
+			       	
+				    </div>
+				    <div class="modal-footer">
+				        <button type="submit" class="btn btn-primary" id="btnsubmit-parking" data-parkingId = "">Submit</button>
+				        <button type="submit" class="btn btn-default" data-dismiss="modal" >Close</button>
+				    </div>
+			    </form>
+		    </div>
+
+		</div>
+	</div>
+</template>

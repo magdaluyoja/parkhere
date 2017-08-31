@@ -1,0 +1,29 @@
+<template name='success'>
+
+	<div id="successModal" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+
+		    <div class="modal-content">
+			    <div class="modal-header">
+				    <button type="button" class="close" data-dismiss="modal">&times;</button>
+				    <h4 class="modal-title">Success Message!</h4>
+			    </div>
+			    <div class="modal-body">
+			       	<div class="alert alert-success">
+					  	<strong>Success!</strong> <span id="lblsuccess"></span>
+					</div>
+			    </div>
+			    <div class="modal-footer">
+			        <button type="button" class="btn btn-success" data-dismiss="modal" >Ok</button>
+			    </div>
+		    </div>
+
+		</div>
+	</div>
+	
+</template>
+<template name='errors'>
+   	<div class="alert alert-danger" id="divErrorMsg" style="display: none;">
+	  	<strong>Danger!</strong> <span id="lblerror"></span>
+	</div>
+</template>

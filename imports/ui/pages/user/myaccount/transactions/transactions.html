@@ -1,0 +1,112 @@
+<template name="App_transactions">
+	<div class="row">
+		<div class="col-md-12">  
+	        {{#if currentUser}}     
+		        <div class="panel panel-success">
+
+		            <div class="panel-heading heading-title">
+		                My Parking History
+		            </div>
+		            <div class="panel-body">
+		               	<div class="table-responsive">
+						  	<table class="table">
+						    	<thead>
+						    		<tr>
+							    		<th>Parking Area Name</th>
+							    		<th>Space No.</th>
+							    		<th>Rate/Minute</th>
+							    		<th>Duration in Mins</th>
+							    		<th>Total Amount</th>
+							    		<th>Status</th>
+							    		<th>Parked At</th>
+							    		<th>Unpaked At</th>
+							    		<th>Action</th>
+							    	</tr>
+						    	</thead>
+						    	<tbody>
+
+						    		{{#each myParkingHistory}}
+						    			<tr>
+							    			<td>{{areaName.parkingName}}</td>
+							    			<td>{{slotNo}}</td>
+							    			<td>{{rate}}</td>
+							    			<td>{{durationTime}}</td>
+							    			<td>{{totalAmount}}</td>
+							    			<td>{{status}}</td>
+							    			<td>{{moFormat parkedAt 'YYYY-MM-DD hh:mm:ss'}}</td>
+							    			<td>{{moFormat unparkedAt 'YYYY-MM-DD hh:mm:ss'}}</td>
+							    			<td>
+							    				{{#if isActive}}
+							    					<input type="submit" name="" class="btn btn-primary btn-unpark" value="Unpark" data-toggle="modal" data-target="#payParkModal">
+							    				{{/if}}
+							    			</td>
+							    		</tr>
+				               		{{/each}}
+						    	</tbody>
+						  	</table>
+						</div>
+		            </div>
+	            </div>
+	        {{else}}
+	        	<div class="panel panel-danger">
+		            <div class="panel-heading">
+		                Oops!
+		            </div>
+		            <div class="panel-body">
+						<h1>Not authorized!</h1>
+					</div>
+				</div>
+			{{/if}}
+        </div>
+	</div>
+	<div id="payParkModal" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+
+		    <!-- Modal content-->
+		    <div class="modal-content">
+			    <div class="modal-header">
+				    <button type="button" class="close" data-dismiss="modal">&times;</button>
+				    <h4 class="modal-title" id="md-parking-title">Parking Payment</h4>
+			    </div>
+		    	<div class="modal-body">
+		       		<div class="container-fluid parking-details">
+			       		<h4>Payment summary</h4>
+			       		<h5>Parking Area : <span id="lblPayParkingName"></span></h5>
+			       		<h5>Space No. : <span id="lblPaySlotNo"></span></h5>
+			       		<h5>Rate : <span id="lblPayRate"></span></h5>
+			       		<h5>Parked At : <span id="lblPayParkedAt"></span></h5>
+			       		<h5>Unpark At : <span>{{payUnparkedAt}}</span></h5>
+			       		<h5>Duration in Minutes : <span id="lblPayDuration"></span></h5>
+			       		<h5>Total Amount : <span id="lblPayAmount"></span></h5>
+			       	</div>
+		       		<div class="container-fluid text-center payment-container">
+			       		<div class="div-payment-options col-md-4">
+				       		<label>
+							    <input type="radio" name="opt-payment" value="paypal" class="opt-paypal" required>
+							    <img src="/img/PayPal.svg.png"  class="img-paypal img-payment">
+							</label>
+						</div>
+			       		<div class="div-payment-options col-md-4">
+				       		<label>
+							    <input type="radio" name="opt-payment" value="visa" class="opt-visa">
+							    <img src="/img/visa.png"  class="img-visa img-payment">
+							</label>
+						</div>
+			       		<div class="div-payment-options col-md-4">
+				       		<label>
+							    <input type="radio" name="opt-payment" value="mastercard" class="opt-mastercard">
+							    <img src="/img/mastercard.png"  class="img-mastercard img-payment">
+							</label>
+						</div>
+		       		</div>
+		       		{{> errors}}
+			    </div>
+			    <div class="modal-footer">
+			        <button type="submit" class="btn btn-primary" id="btnsubmit-payment" data-parkingId = "">Submit</button>
+			        <button type="submit" class="btn btn-default" id="btnclose-payment" data-dismiss="modal" >Close</button>
+			    </div>
+		    </div>
+		</div>
+	</div>
+	{{> success}}
+</template>
